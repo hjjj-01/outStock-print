@@ -1,0 +1,84 @@
+{
+  "name": "new-electron",
+  "version": "0.0.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "start": "nodemon --exec electron . --watch ./ --ext .js,.html,.mjs",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "electron:build": "npm run build-only && electron-builder",
+    "electron:build-win": "set ELECTRON_BINARIES=\"./node_modules/electron/dist\" && npm run build-only && electron-builder --win",
+    "pack": "npm run build-only && electron-packager . --platform=win32 --arch=x64 --out=dist --overwrite"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.3",
+    "@element-plus/icons-vue": "^2.3.1",
+    "@types/jsbarcode": "^3.11.4",
+    "axios": "^1.12.2",
+    "element-plus": "^2.9.7",
+    "jsbarcode": "^3.12.1",
+    "mathjs": "^14.5.2",
+    "start": "^5.1.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "^18.4.4",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.13.9",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "electron": "^35.0.3",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2",
+    "nodemon": "^3.1.9",
+    "npm-run-all2": "^7.0.2",
+    "typescript": "~5.8.0",
+    "vite": "^6.2.1",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vue-tsc": "^2.2.8"
+  },
+  "build": {
+    "appId": "com.yourcompany.yourapp",
+    "productName": "Your App Name",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
