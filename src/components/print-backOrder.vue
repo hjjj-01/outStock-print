@@ -2,15 +2,15 @@
   <div>
       <div ref="printContent" class="print-content" v-show="false"> 
           <div style="width: 205px;">
-            <div  style="font-size: 15px;width: 200px;margin-bottom: 5px;float: left;">日期:{{  commitData[0].statusTime }}</div>
-            <div style="font-size: 15px; width: 200px;float: left;margin-bottom: 5px; float: left;">单号:{{  commitData[0].orderNo }}</div>
+            <div  style="font-size: 15px;width: 180px;margin-bottom: 5px;float: left;">日期:{{  commitData[0].statusTime }}</div>
+            <div style="font-size: 15px; width: 180px;float: left;margin-bottom: 5px; float: left;">单号:{{  commitData[0].orderNo }}</div>
           </div>
           <div style=" width: 160px;margin-top: -25px;font-size: 27px; float: left;">工作号:{{ commitData[0].workNo }}</div>
             
             
             <!-- 半码 -->
             <div style=" float: left;width: 360px;height: 70px;font-size: 132px;margin-top:15px;
-                line-height: 75px;text-align: center;">*{{ radiusOrder }}*
+                line-height: 75px;text-align: center;">{{ radiusOrder }}
             </div>
             <!-- 板数 -->
             <div style="float:left; padding-top: 38px; width:370px">
@@ -43,17 +43,17 @@
                 板贴
               </div>
       </div>
-    <div ref="printContent2" class="print-content" v-show="false"> 
+    <div ref="printContent2" class="print-content" v-show="true"> 
           <div style="width: 205px;">
-            <div  style="font-size: 15px;width: 200px;margin-bottom: 5px;float: left;">日期:{{  commitData[0].statusTime }}</div>
-            <div style="font-size: 15px; width: 200px;float: left;margin-bottom: 5px; float: left;">单号:{{  commitData[0].orderNo }}</div>
+            <div  style="font-size: 15px;width: 180px;margin-bottom: 5px;float: left;">日期:{{  commitData[0].statusTime }}</div>
+            <div style="font-size: 15px; width: 180px;float: left;margin-bottom: 5px; float: left;">单号:{{  commitData[0].orderNo }}</div>
           </div>
           <div style=" width: 160px;margin-top: -25px;font-size: 27px; float: left;">工作号:{{ commitData[0].workNo }}</div>
             
             
             <!-- 半码 -->
             <div style=" float: left;width: 360px;height: 70px;font-size: 132px;margin-top:35px;
-                line-height: 75px;text-align: center;">*{{ radiusOrder }}*
+                line-height: 75px;text-align: center;">{{ radiusOrder }}
             </div>
            
                 
@@ -266,9 +266,10 @@
 
 <style scoped>
   .print-content {
-    width: 400px;
+    width: 350px;
     /* height: 330px; */
     background: #fff;
+    margin-left: 5px;
     border: 2px solid #4e4747;
   }
   #box{
